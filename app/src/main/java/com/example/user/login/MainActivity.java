@@ -1,6 +1,7 @@
 package com.example.user.login;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,19 +15,32 @@ public class MainActivity extends AppCompatActivity {
     EditText loginid,password;
     Button submit;
 
+    String myLoginid, myPassword;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        init();
         findview();
 
+    }
+
+    public void init(){
+        SharedPreferences setting = getSharedPreferences("login",MODE_PRIVATE);
+
+        myLoginid = setting.getString("loginid", "");
+        myPassword = setting.getString("password", "");
     }
 
     public void findview(){
         loginid = (EditText)findViewById(R.id.loginid);
         password = (EditText)findViewById(R.id.password);
         submit = (Button)findViewById(R.id.submit);
+
+        loginid.setText(myLoginid);
+        password.setText(myPassword);
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
