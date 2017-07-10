@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
     String myLoginid, myPassword;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
         myLoginid = setting.getString("loginid", "");
         myPassword = setting.getString("password", "");
+
     }
 
     public void findview(){
@@ -86,4 +88,5 @@ public class MainActivity extends AppCompatActivity {
 
         }
     }
+
 }
