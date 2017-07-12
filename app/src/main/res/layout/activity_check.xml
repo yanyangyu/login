@@ -16,7 +16,7 @@
         <ListView
             android:id="@+id/list"
             android:layout_width="match_parent"
-            android:layout_height="454dp" />
+            android:layout_height="501dp" />
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

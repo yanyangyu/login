@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -21,9 +22,12 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
+import static com.example.user.login.R.id.checkbox;
+
 public class CheckActivity extends AppCompatActivity {
 
     ListView list;
+
     String s;
 
 
@@ -87,6 +91,9 @@ public class CheckActivity extends AppCompatActivity {
         Bundle bag = intent.getExtras();
         String loginid = bag.getString("loginid");
         String password = bag.getString("password");
+        String checkbox = bag.getString("checkbox");
+        String checkbox2 = bag.getString("checkbox2");
+
 
         DateFormat dateFormat = new SimpleDateFormat("yyyy年MM月dd日HH點mm分");
         Date date = new Date();
@@ -99,10 +106,21 @@ public class CheckActivity extends AppCompatActivity {
                     .setPositiveButton("ok",null)
                     .show();
 
+            if (checkbox.equals("yes")){
 
             SharedPreferences setting = getSharedPreferences("login",MODE_PRIVATE);
             setting.edit().putString("loginid",loginid).commit();
             setting.edit().putString("password",password).commit();
+            }
+            else
+            {
+
+            }
+
+
+
+
+
 
             SharedPreferences history = getSharedPreferences("history",MODE_PRIVATE);
             history.edit().putString("date",s + " " + dateFormat.format(date)).commit();
